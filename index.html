@@ -1,0 +1,305 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <title>Read Text File</title>
+</head>
+
+<body>
+    <input type="file" name="inputfile" id="inputfile">
+    <br>
+
+    <pre id="output"></pre>
+
+    <script type="text/javascript">
+        document.getElementById('inputfile')
+            .addEventListener('change', function() {
+
+                var fr = new FileReader();
+                fr.onload = function() {
+                    document.getElementById('output').textContent = fr.result;
+                }
+
+                fr.readAsText(this.files[0]);
+            })
+    </script>
+</body>
+
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        background: #00b894;
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+        font-family: sans-serif;
+        color: #34495e;
+        user-select: none;
+    }
+    
+    .glass {
+        margin: auto;
+        width: 80%;
+        height: 80%;
+        background: #ecf0f1;
+        border-radius: 10px;
+        position: relative;
+        box-shadow: 0px 10px 20px #34495e;
+        display: grid;
+        align-items: center;
+        overflow: auto;
+    }
+    
+    .glass h1,
+    .glass h2 {
+        text-shadow: 0 10px 20px #34495e;
+    }
+    
+    .questions {
+        width: 85%;
+        height: 85%;
+        background: #ecf0f1;
+        margin: auto;
+        border-radius: 10px;
+        display: none;
+        position: relative;
+    }
+    
+    .flexbox {
+        padding-top: 50px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 15px;
+        width: 90%;
+        margin: auto;
+    }
+    
+    .box {
+        border: 2px solid #34495e;
+        height: 250px;
+        border-radius: 10px;
+        box-shadow: 0 5px 5px #34495e;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        transition: 0.5s;
+    }
+    
+    .box:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+    
+    .box img {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .bottom {
+        margin-top: 10px;
+    }
+    
+    a {
+        color: #34495e;
+        text-decoration: none;
+    }
+    
+    .zz {
+        border: 2px solid #34495e;
+        width: 90%;
+        margin: 20px auto;
+        padding: 20px;
+        color: #34495e;
+        font-size: 18px;
+        border-radius: 5px;
+    }
+    
+    .zz:hover {
+        cursor: pointer;
+    }
+    
+    .abs {
+        position: absolute;
+        background: #ff7675;
+        height: 40px;
+        width: 140px;
+        border: none;
+        border-radius: 10px;
+        bottom: 5px;
+        left: 5px;
+        font-size: 18px;
+    }
+    
+    .natija {
+        display: none;
+        width: 50%;
+        height: 50%;
+        margin: auto;
+        background: #ecf0f1;
+    }
+    
+    .natija button {
+        width: 150px;
+        height: 40px;
+        border: none;
+        background: #34495e;
+        color: #fff;
+        font-size: 18px;
+    }
+    
+    @media(min-width:1450px) {
+        .zz,
+        .glass h1 {
+            font-size: 2.2vw;
+        }
+        .bottom a {
+            font-size: 1.7vw;
+        }
+        .glass h2 {
+            font-size: 1.7vw;
+        }
+        #question,
+        #natijam {
+            font-size: 2.2vw;
+        }
+        .abs,
+        .natija button {
+            font-size: 2vw;
+            height: auto;
+            width: auto;
+            padding: 10px;
+        }
+        .sanoq {
+            font-size: 2.2vw;
+        }
+    }
+    
+    @media(max-width:1100px) {
+        .glass {
+            overflow: auto;
+            width: 90%;
+            height: 90%;
+        }
+        .flexbox {
+            grid-template-columns: 1fr 1fr;
+            grid-row-gap: 20px;
+            padding-top: 30px;
+        }
+        .bottom {
+            position: static;
+            padding: 30px 0;
+        }
+        .zz {
+            width: 85%;
+            margin: 25px auto;
+            padding: 15px;
+        }
+        .box:hover {
+            transform: scale(1);
+        }
+        .natija {
+            width: 80%;
+            height: 80%;
+        }
+        .glass h1 {
+            padding-top: 15px;
+            width: 90%;
+            margin: auto;
+            font-size: 22px;
+        }
+        .h2-glass {
+            font-size: 20px;
+        }
+    }
+    
+    @media(max-width:500px) {
+        .flexbox {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<body>
+    <div class="glass">
+        <div>
+            <h1>
+                <center>Welcome to quiz app</center>
+            </h1>
+            <h2 class="h2-glass">
+                <center>choose one section</center>
+            </h2>
+
+            <div class="flexbox">
+                <div class="box b1"><img src="./html.svg" alt="">
+                    <h2>Html test</h2>
+                </div>
+                <div class="box b2"><img src="./css.svg" alt="">
+                    <h2>Css test</h2>
+                </div>
+                <div class="box b3"><img src="./js.svg" alt="">
+                    <h2>Js test</h2>
+                </div>
+                <div class="box b4"><img src="./keys.svg" alt="">
+                    <h2>Math test</h2>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- <div class="time">
+            <h2 class="count"></h2>
+        </div> -->
+
+        <div class="bottom">
+            <center><a href="https://prmominov.netlify.app/">Developer Mo'minov</a></center>
+        </div>
+    </div>
+    <div class="questions">
+        <center>
+            <h2 id="question">
+                Sovol
+            </h2>
+        </center>
+        <hr>
+
+        <p class="zz answer1" onclick="zz1()">javob</p>
+        <p class="zz answer2" onclick="zz2()">javob</p>
+        <p class="zz answer3" onclick="zz3()">javob</p>
+        <center>
+            <h1 class="sanoq">
+                1/5
+            </h1>
+        </center>
+
+        <button class="abs">Testni tugatish</button>
+
+
+    </div>
+    <div class="natija">
+        <center>
+            <h2 id="natijam"></h2>
+        </center>
+        <button onclick="restart()">Qayta topshirish</button>
+    </div>
+
+
+    <script src="./dd.js"></script>
+</body>
+
+</html>
